@@ -2,7 +2,7 @@
 Author: Chou_Uken Chouuken@outlook.com
 Date: 2024-12-13 14:29:16
 LastEditors: Chou_Uken Chouuken@outlook.com
-LastEditTime: 2024-12-13 19:13:38
+LastEditTime: 2024-12-14 18:17:36
 FilePath: /seqfkit/seqfkit/utils.py
 '''
 
@@ -69,3 +69,22 @@ def read_first_fasta(file_path: str) -> str:
                 this_seq += line.strip()
             line = file.readline()
     return (this_seq)
+
+
+def complement(seq: str) -> str:
+    """Generates the complementary DNA sequence.
+
+    Args:
+        seq (str): Original DNA sequence
+    Returns:
+        str: Complementary DNA sequence
+    """
+
+    if not all(c in 'ATCGUatcgu' for c in seq):
+        # DNA序列验证
+        raise ValueError("Invalid DNA sequence: only A(a), T(t), C(c), G(g), U(u) are allowed.")
+
+    complement_map = str.maketrans('ATCGUatcgu', 'TAGCAtagca')
+    return (seq.translate(complement_map))
+
+
