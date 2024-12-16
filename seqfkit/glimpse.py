@@ -18,7 +18,10 @@ def glimpse(fasta_file: click.Path, verbose: bool) -> None:
     seq_list: dict = read_fasta(file_path=fasta_file)
     click.echo('Sequence Number: {0}\n'.format(str(len(seq_list))))
     click.echo('Contains: {0}'.format(', '.join(['\'' + i + '\'' for i in seq_list.keys()])))
-
+    if (verbose):
+        click.echo()
+        for seq in seq_list.keys():
+            click.echo('{0}: {1}'.format(seq, seq_list[seq]))
 
 if __name__ == '__main__':
     glimpse()
