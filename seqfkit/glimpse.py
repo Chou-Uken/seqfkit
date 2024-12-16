@@ -8,7 +8,7 @@ Description: This script provides an overview of a FASTA file.
 '''
 
 import click
-from utils import read_fasta
+from .utils import read_fasta
 
 
 @click.command()

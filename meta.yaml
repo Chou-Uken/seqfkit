@@ -10,7 +10,7 @@ source:
 
 build:
   entry_points:
-    - glimpse = seqfkit.glimpse:glimpse
+    - glimpse = seqfkit.glimpse:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
