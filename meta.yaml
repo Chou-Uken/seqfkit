@@ -1,5 +1,5 @@
 {% set name = "seqfkit" %}
-{% set version = "0.1.3" %}
+{% set version = "0.1.5" %}
 
 package:
   name: {{ name|lower }}
@@ -10,7 +10,7 @@ source:
 
 build:
   entry_points:
-    - glimpse = seqfkit.glimpse:main
+    - glimpse = seqfkit.glimpse:glimpse
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
