@@ -1,10 +1,6 @@
-[build-system]
-requires = ["setuptools>=42", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "seqfkit"
-version = "0.1.2"
+version = "0.1.4"
 description = "Some useful tools to handle sequences (DNA/RNA/Protein)."
 readme = "README.md"
 license = { file = "LICENSE" }
