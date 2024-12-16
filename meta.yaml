@@ -1,0 +1,45 @@
+{% set name = "seqfkit" %}
+{% set version = "0.1.2" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  path: /home/chouuken/seqfkit
+
+build:
+  entry_points:
+    - glimpse = seqfkit.glimpse:glimpse
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+
+requirements:
+  host:
+    - python >=3.10
+    - pip
+  run:
+    - python >=3.10
+    - click
+
+test:
+  imports:
+    - seqfkit
+  commands:
+    - python --version
+    - pip check
+    - glimpse --help
+  requires:
+    - python >=3.10
+    - pip
+    - click
+
+about:
+  summary: Some useful tools to handle sequences (DNA/RNA/Protein).
+  license: Apache-2.0
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - Chou-Uken
